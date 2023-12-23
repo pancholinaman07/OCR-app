@@ -3,11 +3,13 @@ const { extract } = require('../services/extract');
 
 
 // GET /record/add
+// Render the Add-Record Page
 async function handleRenderAddRecord(req, res) {
     return res.render('addRecord');
 }
 
-// POST /record/add redirect to /record/record id
+// POST /record/add
+// Take the image convert to text than extraction and after saved to database
 async function handleAddRecord(req, res) {
     //todo convImgToTxt
     // const text = convImgToTxt(`/uploads/${req.file.filename}`);
@@ -53,7 +55,8 @@ async function handleAddRecord(req, res) {
     return res.redirect(`/record/${record._id}`);
 }
 
-// GET /record/record id
+// GET /record/:recordId
+// Render a particular record
 async function handleRenderRecord(req, res) {
     try {
         const record = await Record.findById(req.params.recordId);
@@ -65,7 +68,8 @@ async function handleRenderRecord(req, res) {
     }
 }
 
-// GET /record/edit/record:id
+// GET /record/edit/:recordId
+// Render the Edit Record Page
 async function handleRenderEditRecord(req, res) {
     try {
         const record = await Record.findById(req.params.recordId);
@@ -77,7 +81,8 @@ async function handleRenderEditRecord(req, res) {
     }
 }
 
-// POST /record/edit/record:id redirect to /record/record id
+// POST /record/edit/:recordId
+// Update the database with Updated Info
 async function handleEditRecord(req, res) {
     try {
         const {identification_number, name, last_name, date_of_birth, date_of_issue, date_of_expiry} = req.body;
@@ -96,7 +101,7 @@ async function handleEditRecord(req, res) {
 }
 
 // GET /record/history
-// GET /record/record id
+// Render all the records
 async function handleRenderHistory(req, res) {
     const records = await Record.find({});
     return res.render('history', {
