@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const ocrSchema = new Schema({
-        coverImageURL: {
+        inputImageURL: {
             type: String,
             required: true,
         },
@@ -20,13 +20,13 @@ const ocrSchema = new Schema({
             type: String,
         },
         date_of_birth: {
-            type: Date,
+            type: String,
         },
         date_of_issue: {
-            type: Date,
+            type: String,
         },
         date_of_expiry: {
-            type: Date,
+            type: String,
         }
 },
 {timestamps: true}

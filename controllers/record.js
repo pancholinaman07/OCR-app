@@ -1,13 +1,25 @@
 const Record = require('../models/record');
+const path = require("path");
+
 
 // GET /record/add
 async function handleRenderAddRecord(req, res) {
-    return res.json({error: 'RenderAddRecord'});
+    return res.render('addRecord');
 }
 
 // POST /record/add redirect to /record/record id
 async function handleAddRecord(req, res) {
-    return res.json({error: 'AddRecord'});
+    //todo testing right now
+    const record = await Record.create({
+        inputImageURL:  `/uploads/${req.file.filename}`,
+        identification_number: '1111',
+        name: 'naman',
+        last_name: 'pancholi',
+        date_of_birth: '30-07-2001',
+        date_of_issue: '20-07-2003',
+        date_of_expiry: '20-07-2019'
+    });
+    return res.redirect(`/record/${record._id}`);
 }
 
 // GET /record/record id
