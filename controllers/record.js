@@ -23,10 +23,12 @@ async function handleAddRecord(req, res) {
 }
 
 // GET /record/record id
-// TODO error handling
 async function handleRenderRecord(req, res) {
-    const record = await Record.findById(req.params.recordId);
-    console.log(record);
+    try {
+        const record = await Record.findById(req.params.recordId);
+    }catch (error) {
+        return res.render('404');
+    }
     return res.render('record', {
         record: record
     });
