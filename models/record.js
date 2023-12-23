@@ -28,6 +28,6 @@ const ocrSchema = new Schema({
 {timestamps: true}
 );
 
-const OCR = model('ocr', ocrSchema);
+const Record = model('ocr', ocrSchema);
 
-module.exports = OCR;
+module.exports = Record;
