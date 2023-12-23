@@ -1,3 +1,4 @@
+const { convertToDate } = require('./conv');
 function extract(text){
     // Extract Identification Number
     const idNumberMatch = text.match(/(\d{1,4}\s\d{4}\s\d{5}\s\d{2}\s\d{1})/);
@@ -15,9 +16,9 @@ function extract(text){
     const dateMatches = text.match(/(\d{1,2} [A-Za-z]+\.* \d{4})/g);
 
     // Assign dates to variables
-    const date_of_birth = dateMatches ? dateMatches[0] : null;
-    const date_of_issue = dateMatches ? dateMatches[1] : null;
-    const date_of_expiry = dateMatches ? dateMatches[2] : null;
+    const date_of_birth = dateMatches ? convertToDate(dateMatches[0]) : null;
+    const date_of_issue = dateMatches ? convertToDate(dateMatches[1]) : null;
+    const date_of_expiry = dateMatches ? convertToDate(dateMatches[2]) : null;
     if(
         identification_number !== null &&
         name !== null &&
