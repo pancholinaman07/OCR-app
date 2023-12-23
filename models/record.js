@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const ocrSchema = new Schema({
+        coverImageURL: {
+            type: String,
+            required: true,
+        },
         status: {
             type: String,
             enum: ['SUCCESS', 'FAILURE'],
