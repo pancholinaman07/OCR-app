@@ -29,7 +29,7 @@ const ocrSchema = new Schema({
             type: String,
         }
 },
-{timestamps: true}
+    {timestamps: true}
 );
 
 const Record = model('record', ocrSchema);
