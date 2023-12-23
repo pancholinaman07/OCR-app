@@ -43,7 +43,9 @@ async function handleAddRecord(req, res) {
       '40\n' +
       '1398-09-07241719';`;
     const extracted = extract(text);
+
     const record = await Record.create({
+        status: extracted.status,
         inputImageURL:  `/uploads/${req.file.filename}`,
         identification_number: extracted.identification_number,
         name: extracted.name,
