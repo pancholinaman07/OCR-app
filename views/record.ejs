@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Record page</title>
+</head>
+<body>
+<%- include('./partials/nav') %>
+
+<div class="container mt-4">
+    <img src="<%=record.inputImageURL%>" width="400px">
+    <%if(record.status === 'SUCCESS') {%>
+        <pre class="mt-3">OCR SUCCESS</pre>
+        <pre class="mt-3">
+            {
+            identification_number: <%=record.identification_number%>,
+            name: <%=record.name%>,
+            last_name: <%=record.last_name%>,
+            date_of_birth: <%=record.date_of_birth%>,
+            date_of_issue: <%=record.date_of_issue%>,
+            date_of_expiry: <%=record.date_of_expiry%>
+            }
+        </pre>
+    <% }else {%>
+        <pre class="mt-3">OCR FAILED</pre>
+    <% } %>
+    <a href="/record/edit/<%=record._id%>" class="btn btn-primary" role="button">Edit</a>
+
+</div>
+<%- include('./partials/scripts') %>
+</body>
+</html>

@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 
 app.use(express.urlencoded({extended: false}));
+app.use(express.static(path.resolve('./public')));
 
 app.get('/', async (req, res) => {
     return  res.render('home');
