@@ -1,3 +1,5 @@
+const Record = require('../models/record');
+
 // GET /record/add
 // Render the Add-Record Page
 async function handleRenderAddRecord(req, res) {
