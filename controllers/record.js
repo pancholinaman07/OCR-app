@@ -1,5 +1,6 @@
 const Record = require('../models/record');
 const { extract } = require('../services/extract');
+const fs = require('fs');
 
 
 // POST /record/add
@@ -70,9 +71,20 @@ async function handleEditRecord(req, res) {
     }
 }
 
+//TODO log handling
+async function handleDeleteRecord(req, res) {
+    try{
+        const record =await Record.findByIdAndDelete(req.params.recordId);
+        fs.unlink(`./public/${record.inputImageURL}`, (err) => console.log(err));
+        return res.redirect(`/`);
+    }catch (error) {
+        return res.render('404');
+    }
+}
 module.exports = {
     handleAddRecord,
     handleEditRecord,
+    handleDeleteRecord,
 };
 
 

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { upload } = require('../services/upload');
-const { handleAddRecord, handleEditRecord } = require('../controllers/record');
+const { handleAddRecord, handleEditRecord, handleDeleteRecord } = require('../controllers/record');
 const {
     handleRenderAddRecord,
     handleRenderRecord,
@@ -16,8 +16,14 @@ router.get('/add', handleRenderAddRecord);
 router.get('/:recordId', handleRenderRecord);
 router.get('/edit/:recordId', handleRenderEditRecord);
 
+
 router.post('/add', upload.single('inputImage'), handleAddRecord);
 router.post('/edit/:recordId', handleEditRecord);
+
+
+router.get('/delete/:recordId', handleDeleteRecord);
+
+
 
 
 module.exports = router;
