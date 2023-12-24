@@ -14,7 +14,17 @@ function extract(text){
 
     // Extract Dates
     const dateMatches = text.match(/(\d{1,2} [A-Za-z]+\.* \d{4})/g);
-
+    if(dateMatches === null) {
+        return {
+            status: 'FAILURE',
+            identification_number,
+            name,
+            last_name,
+            date_of_birth: '',
+            date_of_issue: '',
+            date_of_expiry: ''
+        };
+    }
     // Assign dates to variables
     const date_of_birth = dateMatches ? convertToDate(dateMatches[0]) : null;
     const date_of_issue = dateMatches ? convertToDate(dateMatches[1]) : null;

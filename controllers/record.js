@@ -1,6 +1,7 @@
 const Record = require('../models/record');
 const { extract } = require('../services/extract');
 const fs = require('fs');
+const { getData } = require('../services/ocr_api');
 
 
 // POST /record/add
@@ -8,37 +9,10 @@ const fs = require('fs');
 async function handleAddRecord(req, res) {
     //todo convImgToTxt
     // const text = convImgToTxt(`/uploads/${req.file.filename}`);
-    const text = `'บัตรประจำตัวประชาชน Thai National ID Card\n' +
-      '1 1037 02071 81 1\n' +
-      'เลขประจำตัวประชาชน\n' +
-      'Identification Number\n' +
-      'ชื่อตัวและชื่อสกุล น.ส. ณัฐริกา ยางสวย\n' +
-      'Name Miss Nattarika\n' +
-      'Last name Yangsuai\n' +
-      'เกิดวันที่ 25 มิ.ย. 2539\n' +
-      'Date of Birth 25 Jun. 1996\n' +
-      'ศาสนา พุทธ\n' +
-      'ที่อยู่ 111/17 หมู่ที่ 2 ต.ลาดหญ้า อ.เมืองกาญจนบุรี\n' +
-      'จ.กาญจนบุรี\n' +
-      '24 ก.ค. 2553 -\n' +
-      'วันออกบัตร\n' +
-      '24 Jul. 2020\n' +
-      'Date of Issue\n' +
-      'from\n' +
-      '(นายธนาคม จงจิระ\n' +
-      'เจ้าพนักงานออกบัตร\n' +
-      '24 9.8. 2572\n' +
-      'วันบัตรหมดอายุ\n' +
-      '24 Jun. 2023 2\n' +
-      'Date of Expiry\n' +
-      '160\n' +
-      '15\n' +
-      '_160\n' +
-      '150\n' +
-      '40\n' +
-      '1398-09-07241719';`;
+    const text = await getData(`./public/uploads/${req.file.filename}`, './secret.json');
     const extracted = extract(text);
-
+    console.log(extracted);
+    // return res.json({ok : 'ok'});
     const record = await Record.create({
         status: extracted.status,
         inputImageURL:  `/uploads/${req.file.filename}`,
