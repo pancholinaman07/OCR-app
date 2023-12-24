@@ -15,13 +15,11 @@ router.get('/history', handleRenderHistory);
 router.get('/add', handleRenderAddRecord);
 router.get('/:recordId', handleRenderRecord);
 router.get('/edit/:recordId', handleRenderEditRecord);
+router.get('/delete/:recordId', handleDeleteRecord);
 
 
 router.post('/add', upload.single('inputImage'), handleAddRecord);
 router.post('/edit/:recordId', handleEditRecord);
-
-
-router.get('/delete/:recordId', handleDeleteRecord);
 
 
 

@@ -21,7 +21,6 @@ async function handleRenderHistory(req, res) {
     }
 }
 
-
 module.exports = {
     handleRenderHistory,
 };
