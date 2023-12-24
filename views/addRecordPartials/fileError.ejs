@@ -1,0 +1,33 @@
+<script>
+    function uploadFile(){
+        const fileInput = document.getElementById('inputImage');
+        const fileError = document.getElementById('fileError');
+        const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+        const maxFileSizeInBytes = 2097152; // 10 MB
+
+        // Reset error message
+        fileError.textContent = '';
+
+        // Check if a file is selected
+        if (!fileInput.files || fileInput.files.length === 0) {
+            fileError.textContent = 'Please choose a file.';
+            return;
+        }
+
+        // Check file type
+        const fileType = fileInput.files[0].type;
+        if (!allowedFileTypes.includes(fileType)) {
+            fileError.textContent = 'Invalid file type. Allowed types: JPG, JPEG, PNG.';
+            return;
+        }
+
+        // Check file size
+        const fileSize = fileInput.files[0].size;
+        if (fileSize > maxFileSizeInBytes) {
+            fileError.textContent = 'File size exceeds the limit of 2 MB.';
+            return;
+        }
+
+        document.getElementById('fileUploadForm').submit();
+    }
+</script>
