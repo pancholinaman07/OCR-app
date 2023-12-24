@@ -57,7 +57,6 @@ function extract(text){
             date_of_expiry
         };
     }catch(e) {
-        console.log(e);
         return {
             status: 'FAILURE',
             identification_number: '',

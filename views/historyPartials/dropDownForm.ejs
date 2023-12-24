@@ -1,6 +1,6 @@
 <div class="container mt-4">
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dateFilterButton" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dateFilterButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Filter
         </button>
         <div class="dropdown-menu" aria-labelledby="dateFilterButton">
@@ -17,6 +17,22 @@
                     <label for="doe">Date of expiry</label>
                     <input name="doe" type="date" class="form-control" id="doe" value=<%=locals.doe%>>
                 </div>
+                <!-- Add checkboxes here -->
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="success" id="success">
+                        <label class="form-check-label" for="success">
+                            Success
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="failure" id="failure">
+                        <label class="form-check-label" for="failure">
+                            Failure
+                        </label>
+                    </div>
+                </div>
+                <!-- End of checkboxes -->
                 <button type="submit" class="btn btn-primary">Apply Filter</button>
             </form>
         </div>
