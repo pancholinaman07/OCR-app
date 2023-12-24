@@ -1,13 +1,13 @@
 const { Router } = require('express');
 const { upload } = require('../services/upload');
+const { handleAddRecord, handleEditRecord } = require('../controllers/record');
 const {
     handleRenderAddRecord,
-    handleAddRecord,
     handleRenderRecord,
     handleRenderEditRecord,
-    handleEditRecord,
-    handleRenderHistory
-} = require('../controllers/record');
+} = require('../controllers/renderRecord');
+
+const { handleRenderHistory } = require('../controllers/renderRecordHistory');
 
 const router = Router();
 
