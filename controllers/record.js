@@ -11,7 +11,7 @@ async function handleAddRecord(req, res) {
     // const text = convImgToTxt(`/uploads/${req.file.filename}`);
     const text = await getData(`./public/uploads/${req.file.filename}`, './secret.json');
     const extracted = extract(text);
-    console.log(extracted);
+    // console.log(extracted);
     // return res.json({ok : 'ok'});
     const record = await Record.create({
         status: extracted.status,
