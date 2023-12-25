@@ -2,7 +2,7 @@
 
 This document provides information about the APIs in this project.
 
-![Data Flow Diagram](DFD.jpg)
+![Data Flow Diagram](DFD.png)
 
 ## Table of Contents
 
