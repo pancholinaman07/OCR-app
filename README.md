@@ -1,4 +1,6 @@
-# API Documentation
+# Project Name
+
+## API Documentation
 
 This document provides information about the APIs in this project.
 
@@ -13,6 +15,7 @@ This document provides information about the APIs in this project.
 - [Edit Record](#edit-record)
 - [Delete Record](#delete-record)
 - [History Page](#history-page)
+- [Run the Project](#run-the-project)
 
 ## Project Link
 
@@ -47,7 +50,7 @@ Displays information about a specific record, including its status and extracted
 
 ### `GET /record/edit/:recordId`
 
-Renders a form to edit the given record, allowing users to change the extracted information , or they can Delete the record which calls `record/delete/:recordId`.
+Renders a form to edit the given record, allowing users to change the extracted information, or they can Delete the record which calls `record/delete/:recordId`.
 
 ### `POST /record/edit/:recordId`
 
@@ -57,7 +60,7 @@ Updates the information of the specified record based on the submitted form.
 
 ### `GET /record/delete/:recordId`
 
-Deletes the record from database if recordId exists.
+Deletes the record from the database if the recordId exists.
 
 ## History Page
 
@@ -65,3 +68,22 @@ Deletes the record from database if recordId exists.
 
 Renders the history page containing all past submitted records. Includes filter options to search through records based on status, creation date, date of birth, date of issue, and date of expiry. Users can choose any combination to filter the history of records.
 
+## Run the Project
+
+To deploy and run the application:
+
+1. Create a `.env` file in the root directory with two environmental variables:
+    - `PORT`: Relevant port number
+    - `MONGO_URL`: MongoDB database URL
+
+2. Create an account on Google Cloud Platform.
+
+3. Enable the Google Vision API.
+
+4. Create a service account and get the JSON credential.
+
+5. Rename the credential file as 'credential.json'.
+
+6. In the terminal, run `npm install` to install the required packages.
+
+7. To start the project, run `npm start`.
