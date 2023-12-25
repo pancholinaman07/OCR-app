@@ -26,6 +26,7 @@ async function handleRenderHistory(req, res) {
             dob: queryParams.dob,
             doi: queryParams.doi,
             doe: queryParams.doe,
+            createdAt: queryParams.createdAt,
         });
 
     }catch (error) {
