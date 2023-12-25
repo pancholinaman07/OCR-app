@@ -23,6 +23,10 @@
                 date_of_issue: <%=record.date_of_issue%>,
                 date_of_expiry: <%=record.date_of_expiry%>
             }
+<!--
+            Record Added   on: <%= record.createdAt.toString().substring(4, 15)%>
+            Record Updated on: <%= record.updatedAt.toString().substring(4, 15);%>-->
+
         </pre>
     <% } %>
     <a href="/record/edit/<%=record._id%>" class="btn btn-primary" role="button">Edit</a>

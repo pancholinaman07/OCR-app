@@ -22,7 +22,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // Connect To Database
-connectMongoDb(`mongodb+srv://pancholinaman:pancholinaman@cluster0.7zc51v4.mongodb.net/qoala?retryWrites=true&w=majority`)
+connectMongoDb(`mongodb+srv://pancholinaman:pancholinaman@cluster0.lgmcr7z.mongodb.net/?retryWrites=true&w=majority`)
     .then((e) => console.log('MongoDB Connected'));
 
 
