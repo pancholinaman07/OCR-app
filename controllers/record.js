@@ -2,6 +2,7 @@ const Record = require('../models/record');
 const { extract } = require('../services/extract');
 const fs = require('fs');
 const { getData } = require('../services/ocr_api');
+const { getDate } = require('../services/todayDate');
 
 
 // POST /record/add
@@ -18,6 +19,8 @@ async function handleAddRecord(req, res) {
 
         // Added path of saved image
         extracted.inputImageURL = `/uploads/${req.file.filename}`;
+        extracted.createdAt = getDate();
+        extracted.updatedAt = getDate();
 
         // Save to database
         const record = await Record.create(extracted);
@@ -49,7 +52,8 @@ async function handleEditRecord(req, res) {
                 last_name,
                 date_of_birth,
                 date_of_issue,
-                date_of_expiry
+                date_of_expiry,
+                updatedAt: getDate(),
             });
 
         // Redirect to Record page

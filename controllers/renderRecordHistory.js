@@ -10,6 +10,7 @@ async function handleRenderHistory(req, res) {
 
         // Query Created using queryParams
         const query = {};
+        if(queryParams.createdAt && queryParams.createdAt !== '') query.createdAt = queryParams.createdAt;
         if(queryParams.dob && queryParams.dob !== '') query.date_of_birth = queryParams.dob;
         if(queryParams.doi && queryParams.doi !== '') query.date_of_issue = queryParams.doi;
         if(queryParams.doe && queryParams.doe !== '') query.date_of_expiry = queryParams.doe;

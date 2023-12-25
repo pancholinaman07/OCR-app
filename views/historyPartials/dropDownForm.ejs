@@ -5,18 +5,6 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dateFilterButton">
             <form action="/record/history" method="get" class="px-4 py-3">
-                <div class="form-group">
-                    <label for="dob">Date of birth</label>
-                    <input name="dob" type="date" class="form-control" id="dob" value=<%=locals.dob%>>
-                </div>
-                <div class="form-group">
-                    <label for="doi">Date of issue</label>
-                    <input name="doi" type="date" class="form-control" id="doi" value=<%=locals.doi%>>
-                </div>
-                <div class="form-group">
-                    <label for="doe">Date of expiry</label>
-                    <input name="doe" type="date" class="form-control" id="doe" value=<%=locals.doe%>>
-                </div>
                 <!-- Add checkboxes here -->
                 <div class="form-group">
                     <div class="form-check">
@@ -33,6 +21,23 @@
                     </div>
                 </div>
                 <!-- End of checkboxes -->
+                <div class="form-group">
+                    <label for="createdAt">CreatedAt</label>
+                    <input name="createdAt" type="date" class="form-control" id="createdAt" value=<%=locals.createdAt%>>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of birth</label>
+                    <input name="dob" type="date" class="form-control" id="dob" value=<%=locals.dob%>>
+                </div>
+                <div class="form-group">
+                    <label for="doi">Date of issue</label>
+                    <input name="doi" type="date" class="form-control" id="doi" value=<%=locals.doi%>>
+                </div>
+                <div class="form-group">
+                    <label for="doe">Date of expiry</label>
+                    <input name="doe" type="date" class="form-control" id="doe" value=<%=locals.doe%>>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Apply Filter</button>
             </form>
         </div>

@@ -27,9 +27,14 @@ const ocrSchema = new Schema({
         },
         date_of_expiry: {
             type: String,
-        }
-},
-    {timestamps: true}
+        },
+        createdAt: {
+            type: String,
+        },
+        updatedAt: {
+            type: String,
+        },
+}
 );
 
 const Record = model('record', ocrSchema);
