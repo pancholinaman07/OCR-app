@@ -11,7 +11,7 @@ async function handleAddRecord(req, res) {
     try{
 
         // Google API Call
-        const text = await getData(`./public/uploads/${req.file.filename}`, './secret.json');
+        const text = await getData(`./public/uploads/${req.file.filename}`, './cred/secret.json');
 
         // Process and extract relevant information
         const extracted = extract(text);
