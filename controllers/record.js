@@ -2,6 +2,7 @@ const Record = require('../models/record');
 const { extract } = require('../services/extract');
 const fs = require('fs');
 const { getData } = require('../services/ocr_api');
+const path = require("path");
 
 
 // POST /record/add
@@ -11,7 +12,7 @@ async function handleAddRecord(req, res) {
     try{
 
         // Google API Call
-        const text = await getData(`./public/uploads/${req.file.filename}`, './cred/secret.json');
+        const text = await getData(`./public/uploads/${req.file.filename}`, path.resolve('./cred/secret.json'));
 
         // Process and extract relevant information
         const extracted = extract(text);
