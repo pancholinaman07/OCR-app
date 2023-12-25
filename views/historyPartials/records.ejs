@@ -1,18 +1,19 @@
 <div class="container mt-3">
-    <% records.forEach(record => { %>
-        <div class="col">
-            <div class="card col" style="width: 18rem">
-                <img src="<%= record.inputImageURL %>" class="card-img-top" />
-                <div class="card-body">
-                    <%if(record.status === 'SUCCESS') {%>
-                        <h5 class="card-title text-success"><%= record.status %></h5>
-                    <%}else {%>
-                        <h5 class="card-title text-danger"><%= record.status %></h5>
-                    <%}%>
-
-                    <a href="/record/<%= record._id %>" class="btn btn-primary">View</a>
+    <div class="row row-cols-4">
+        <% records.forEach(record => { %>
+            <div class="col mb-4">
+                <div class="card col" style="width: 18rem">
+                    <img src="<%= record.inputImageURL %>" class="card-img-top fixed-size-image" />
+                    <div class="card-body">
+                        <%if(record.status === 'SUCCESS') {%>
+                            <h5 class="card-title text-success"><%= record.status %></h5>
+                        <%}else {%>
+                            <h5 class="card-title text-danger"><%= record.status %></h5>
+                        <%}%>
+                        <a href="/record/<%= record._id %>" class="btn btn-primary">View</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    <% }) %>
+        <% }) %>
+    </div>
 </div>
