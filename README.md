@@ -1,8 +1,8 @@
-# Project Name
+# OCR APP
 
-## API Documentation
+## PROJECT Documentation
 
-This document provides information about the APIs in this project.
+This document provides information about the APIs and deployment for this project.
 
 ![Data Flow Diagram](DFD.png)
 
