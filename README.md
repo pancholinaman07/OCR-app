@@ -2,13 +2,17 @@
 
 This document provides information about the APIs in this project.
 
+![Data Flow Diagram](DFD.jpg)
+
 ## Table of Contents
 
 - [Home](#home)
 - [Add Record](#add-record)
 - [Record Details](#record-details)
 - [Edit Record](#edit-record)
+- [Delete Record](#delete-record)
 - [History Page](#history-page)
+
 
 ## Home
 
@@ -39,11 +43,17 @@ Displays information about a specific record, including its status and extracted
 
 ### `GET /record/edit/:recordId`
 
-Renders a form to edit the given record, allowing users to change the extracted information.
+Renders a form to edit the given record, allowing users to change the extracted information , or they can Delete the record which calls `record/delete/:recordId`.
 
 ### `POST /record/edit/:recordId`
 
 Updates the information of the specified record based on the submitted form.
+
+## Delete Record
+
+### `GET /record/delete/:recordId`
+
+Deletes the record from database if recordId exists.
 
 ## History Page
 
