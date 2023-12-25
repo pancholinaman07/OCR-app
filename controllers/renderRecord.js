@@ -21,8 +21,10 @@ async function handleRenderRecord(req, res) {
         });
 
     }catch (error) {
-        console.log('error while finding record', error);
+
+        console.log('error while finding record in Render Record', error);
         return res.render('404');
+
     }
 }
 
@@ -30,12 +32,19 @@ async function handleRenderRecord(req, res) {
 // Render the Edit Record Page
 async function handleRenderEditRecord(req, res) {
     try {
+
+        // Find the Record By ID
         const record = await Record.findById(req.params.recordId);
+
         return res.render('editRecord', {
             record: record
         });
+
     }catch (error) {
+
+        console.log('error while finding record in Render Edit Record', error);
         return res.render('404');
+
     }
 }
 
