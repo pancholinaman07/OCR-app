@@ -92,5 +92,3 @@ module.exports = {
     handleEditRecord,
     handleDeleteRecord,
 };
-
-
