@@ -6,7 +6,7 @@ function extract(text){
         const identification_number = idNumberMatch ? idNumberMatch[0] : null;
 
         // Extract Name
-        const nameMatch = text.match(/Name Miss (.+?)\n/);
+        const nameMatch = text.match(/Name (.+?)\n/);
         const name = nameMatch ? nameMatch[1] : null;
 
         // Extract Last Name
@@ -30,6 +30,14 @@ function extract(text){
         const date_of_birth = dateMatches ? convertToDate(dateMatches[0]) : null;
         const date_of_issue = dateMatches ? convertToDate(dateMatches[1]) : null;
         const date_of_expiry = dateMatches ? convertToDate(dateMatches[2]) : null;
+        const record = {
+                identification_number,
+                name,
+                last_name,
+                date_of_birth,
+                date_of_issue,
+                date_of_expiry
+        }
         if (
             identification_number !== null &&
             name !== null &&
@@ -37,35 +45,22 @@ function extract(text){
             date_of_birth != null &&
             date_of_issue !== null &&
             date_of_expiry !== null) {
-            return {
-                status: 'SUCCESS',
-                identification_number,
-                name,
-                last_name,
-                date_of_birth,
-                date_of_issue,
-                date_of_expiry
-            };
+            record.status = 'SUCCESS';
+            return record;
         }
-        return {
-            status: 'FAILURE',
-            identification_number,
-            name,
-            last_name,
-            date_of_birth,
-            date_of_issue,
-            date_of_expiry
-        };
+        record.status = 'FAILURE';
+        return record;
     }catch(e) {
-        return {
-            status: 'FAILURE',
-            identification_number: '',
-            name: '',
-            last_name: '',
-            date_of_birth: '',
-            date_of_issue: '',
-            date_of_expiry: ''
-        };
+        const record = {
+            identification_number : '',
+            name : '',
+            last_name : '',
+            date_of_birth : '',
+            date_of_issue : '',
+            date_of_expiry : ''
+        }
+        record.status = 'FAILURE';
+        return record;
     }
 
 }

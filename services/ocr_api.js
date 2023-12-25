@@ -24,6 +24,7 @@ async function getData(imagePath, CredentialPath) {
             return '';
         }
     } catch (error) {
+        console.log(error);
         return '';
     }
 }
