@@ -28,7 +28,7 @@ async function handleAddRecord(req, res) {
     }catch (error) {
 
         // Any error redirect to 404
-        console.log('error while edit record', error);
+        console.log('error while add record', error);
         return res.render('404');
 
     }
@@ -80,7 +80,7 @@ async function handleDeleteRecord(req, res) {
     }catch (error) {
 
         // Any error redirect to 404
-        console.log('error while edit record', error);
+        console.log('error while delete record', error);
         return res.render('404');
 
     }
