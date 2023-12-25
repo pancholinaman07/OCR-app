@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const path = require("path");
 
 const recordRoute = require('./routes/record');
+const {logReqRes} = require("./middlewares/logger");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -18,6 +19,7 @@ app.set('views', path.resolve('./views'));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.resolve('./public')));
+app.use(logReqRes("logs/logs.txt"));
 
 app.get('/', async (req, res) => {
     return  res.render('home');

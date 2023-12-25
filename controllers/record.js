@@ -53,7 +53,7 @@ async function handleEditRecord(req, res) {
 async function handleDeleteRecord(req, res) {
     try{
         const record =await Record.findByIdAndDelete(req.params.recordId);
-        fs.unlink(`./public/${record.inputImageURL}`, (err) => console.log(err));
+        fs.unlink(`./public/${record.inputImageURL}`, () => {});
         return res.redirect(`/`);
     }catch (error) {
         return res.render('404');
