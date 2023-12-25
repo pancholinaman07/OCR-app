@@ -21,7 +21,4 @@ router.get('/delete/:recordId', handleDeleteRecord);
 router.post('/add', upload.single('inputImage'), handleAddRecord);
 router.post('/edit/:recordId', handleEditRecord);
 
-
-
-
 module.exports = router;
