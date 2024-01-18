@@ -8,7 +8,6 @@ This document provides information about the APIs and deployment for this projec
 
 ## Table of Contents
 
-- [Project Link](#project-link)
 - [Home](#home)
 - [Add Record](#add-record)
 - [Record Details](#record-details)
@@ -16,10 +15,6 @@ This document provides information about the APIs and deployment for this projec
 - [Delete Record](#delete-record)
 - [History Page](#history-page)
 - [Run the Project](#run-the-project)
-
-## Project Link
-
-[Link to Live Project](https://thai-id-ocr.up.railway.app/)
 
 ## Home
 
